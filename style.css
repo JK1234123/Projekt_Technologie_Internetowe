@@ -1,0 +1,55 @@
+.header {
+	background-color: rgb(185,122,87);
+	height: 15%;
+	width: 99%;
+	padding: 10px 10px;
+	position: fixed;
+}
+.header button{
+	background-color:rgb(218, 186, 156);
+	border-color:rgb(218, 186, 156);
+	width: 200px;
+	height: 100px;
+	font-size: 24px;
+	float: center-left;
+	margin-top: 20px;
+	margin-left: 20px;
+}
+.header p{
+	float: right;
+	font-size: 24px;
+}
+.header input{
+	float:right;
+	height: 40px;
+	width: 360px;
+}
+.main{
+	background-color:rgb(218, 186, 156);
+	padding: 80% 10px;
+}
+.footer {
+	background-color: rgb(185,122,87);
+	height: 15%;
+	width: 98,8%;
+	padding: 10px 10px;
+}
+.footer button{
+	background-color:rgb(218, 186, 156);
+	border-color:rgb(218, 186, 156);
+	width: 200px;
+	height: 100px;
+	font-size: 24px;
+	float: center-left;
+	margin-top: 20px;
+	margin-left: 20px;
+}
+.footer p{
+	text-align: center;
+}
+#nowyPostbtn{
+	float:right;
+}
+body {
+	margin:0;
+}
