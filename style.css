@@ -14,20 +14,23 @@
 	width: 200px;
 	height: 100px;
 	font-size: 24px;
-	float: center-left;
+	float: left;
 	margin-top: 20px;
 	margin-left: 20px;
 }
 .header p{
 	display: inline-block;
 	float: right;
+	margin-right:5px;
+	margin-top:10px;
 	font-size: 24px;
 }
 .header input{
 	display: inline-block;
-	float:right;
-	height: 40px;
-	width: 360px;
+	height: 60px;
+	width: 370px;
+	margin-left:860px;
+	margin-top:60px;
 }
 .main{
 	background-color:rgb(218, 186, 156);
@@ -57,6 +60,14 @@
 	text-align:center; 
 	vertical-align: middle;
 	font-size:48px;
+}
+.footer a{
+	display: inline-block;
+	text-align:center; 
+	vertical-align: middle;
+	font-size:48px;
+	padding-left:15px;
+	color="black;
 }
 #iloscWyswietlanych{
 	float:left;
