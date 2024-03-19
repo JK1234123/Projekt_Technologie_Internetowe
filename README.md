@@ -5,3 +5,4 @@ To Do:
 - add search bar funcionality
 - add buttons funcionality
 - make the api
+- add login feature
