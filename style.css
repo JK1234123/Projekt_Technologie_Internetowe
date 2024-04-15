@@ -33,50 +33,29 @@
 	margin-left:860px;
 	margin-top:60px;
 }
-.main{
+#filtr {
+	float:right;
+}
+.main {
 	background-color:rgb(218, 186, 156);
-	height:660px;
+	height:2000px;
 	margin-top: 140px;
 	display:flex;
 }
-.footer {
-	background-color: rgb(185,122,87);
-	height: 200px;
-	width: 99%;
-	padding: 10px 10px;
-	position:fixed;
-	text-align:center; 
+#posts td {
+	padding: 0px 200px 1px 200px;
+	text-align: middle; 
+    vertical-align: top;
 }
-.footer button{
-	background-color:rgb(218, 186, 156);
-	border-color:rgb(218, 186, 156);
-	width: 200px;
-	height: 100px;
-	font-size: 24px;
-	margin-top: 20px;
-	margin-left: 20px;
-	display: inline-block;
-}
-.footer p{
-	display: inline-block;
-	text-align:center; 
-	vertical-align: middle;
-	font-size:48px;
-}
-.footer a{
-	display: inline-block;
-	text-align:center; 
-	vertical-align: middle;
-	font-size:48px;
-	padding-left:15px;
-	color="black;
-}
-#iloscWyswietlanych{
-	float:left;
+#titles td {
+	padding: 50px 200px 1px 200px;
+	text-align: center; 
+    vertical-align: bottom;
 }
 #nowyPostbtn{
 	float:right;
 }
 body {
 	margin:0;
+	background-color:rgb(218, 186, 156);
 }
