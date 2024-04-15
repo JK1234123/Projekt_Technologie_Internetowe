@@ -6,30 +6,83 @@
 <link rel="stylesheet" href="style.css">
 <script src="script.js"></script> 
 </head>
-<body onload="ZalogowanyUzytkownik()">
+<body onload="showPosts()">
 <div class="header"> 
-<button  type="button">Posty</button> 
-<button type="button">Albumy</button> 
-<button type="button">Log Błędów</button>
-<p id="nazwaUzytkownika">Nazwa użytkownika</p>
-<p>Zalogowany użytkownik: </p>
-<input type="text" placeholder="Search..">
+<button  type="button" onclick="showPosts()">Posty</button> 
+<button type="button" onclick="showAlbum()">Albumy</button> 
+<button type="button" onclick="showLog()">Log Błędów</button>
+<button id="filtr" type="button">Filtruj posty</button>
 </div>
 <div class="main">
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam in pulvinar mauris, eu aliquet quam. Suspendisse condimentum ornare risus, at auctor tellus fermentum vitae. Maecenas tristique neque quis elit fermentum tempor. Duis dui lorem, ultrices et diam ut, porttitor efficitur sapien. Morbi semper metus nec lacus convallis, ac vehicula erat mollis. Donec consectetur lorem at suscipit dapibus. Phasellus sed mattis nisl. Etiam dictum purus nec fringilla consequat. Nunc fermentum mollis sapien, eu sollicitudin erat finibus in. Nam facilisis interdum diam id molestie. Nam congue facilisis dolor et ornare. Sed sed convallis sem. Ut erat lacus, efficitur nec felis id, viverra dictum mauris. Sed in lacinia nunc. Integer feugiat dui nisl, vel luctus quam porta euismod. Sed malesuada nulla justo, quis condimentum velit semper ac.
-Integer a vulputate dui, in tempor ipsum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse tempus, nibh id elementum rhoncus, odio enim rutrum sem, at interdum risus mauris vitae lacus. Duis dictum consectetur justo. Proin viverra mi ut risus pellentesque, sit amet dictum nunc tincidunt. Integer imperdiet, mauris a tempus auctor, massa lectus blandit est, a dignissim sem sapien sed quam. Fusce vitae lectus congue nunc tincidunt blandit. Quisque lacinia iaculis lectus, vitae maximus turpis. Mauris vestibulum odio bibendum, aliquet nulla non, posuere diam. Donec semper mi nulla.
-Nunc fermentum libero eu mauris eleifend, eu porta libero mollis. Mauris feugiat vehicula pulvinar. Morbi suscipit venenatis tristique. Sed ultricies, eros sed malesuada luctus, mi massa aliquet urna, sed ornare urna ligula vel neque. Proin interdum mollis facilisis. Suspendisse eget venenatis lectus. Sed a dolor et neque bibendum eleifend. Duis tortor arcu, posuere vel aliquam quis, tincidunt eget nisl. Cras urna libero, pellentesque sed ipsum lobortis, sodales dignissim erat. Nulla faucibus, lorem id volutpat scelerisque, tellus ipsum cursus enim, at ornare diam orci sed mi.
-Nullam sit amet urna varius, dictum ex vitae, porta eros. Fusce nec dictum mauris. Cras accumsan laoreet nunc, pretium tempor lectus ullamcorper ac. Fusce egestas fringilla nulla, sit amet molestie ipsum tincidunt in. Cras id purus non urna consequat congue ut a nulla. Proin sem tellus, tincidunt quis sagittis eu, feugiat quis diam. Mauris a enim consectetur, faucibus nunc a, feugiat tellus. Curabitur auctor sollicitudin purus, ac molestie justo venenatis id. Etiam quis accumsan mauris, vitae pharetra lectus. Donec tempus odio maximus, varius nisl sed, porttitor neque. Sed mollis eleifend nibh at convallis. Nullam sed euismod lorem, sit amet vehicula tellus.
-Donec tincidunt ac dui eget porttitor. Mauris dignissim vitae sem sed auctor. Vestibulum vehicula sem metus, non rhoncus augue efficitur ac. In vulputate ipsum neque, at iaculis dolor ultricies ultrices. Proin gravida vitae lectus sed lacinia. Etiam et urna purus. Mauris varius lorem id lacus iaculis, id mattis sapien condimentum. Sed nunc ipsum, aliquam eget arcu vel, accumsan aliquet ligula. Duis justo dui, malesuada eget purus nec, convallis tincidunt mauris. Cras vulputate mollis nunc, euismod faucibus dolor varius vitae. Integer mauris eros, ultricies quis viverra ut, consequat a sapien. Nam tempor nisl et ex tempor pretium.</p>
-</div>
-<div class="footer"> 
-<button id="iloscWyswietlanych" type="button">Ilość wyświetlanych elementów</button>
-<p>Strona</p>
-<a>1</a>
-<a>2</a>
-<a>3</a>
-<a>4</a>
-<button id="nowyPostbtn" type="button">Nowy Post</button> 
+<table height=1800px id="table">
+<tr height=50px width=1920px id="titles">
+<td width=960px>
+<b class="titles" id="title1"></b>
+</td>
+<td class="titles" width=960px>
+<b id="title2"></b>
+</td>
+</tr>
+<tr height=80px width=1920px id="posts">
+<td class="posts" width=960px>
+<p id="post1"></p>
+</td>
+<td class="posts" width=960px>
+<p id="post2"></p>
+</td>
+</tr>
+<tr height=80px></tr>
+<tr height=50px width=1920px id="titles">
+<td class="titles" width=960px>
+<b id="title3"></b>
+</td>
+<td class="titles" width=960px>
+<b id="title4"></b>
+</td>
+</tr>
+<tr height=80px width=1920px id="posts">
+<td class="posts" width=960px>
+<p id="post3"></p>
+</td>
+<td class="posts" width=960px>
+<p id="post4"></p>
+</td>
+</tr>
+<tr height=80px></tr>
+<tr height=50px width=1920px id="titles">
+<td class="titles" width=960px>
+<b id="title5"></b>
+</td>
+<td class="titles" width=960px>
+<b id="title6"></b>
+</td>
+</tr>
+<tr height=80px width=1920px id="posts">
+<td class="posts" width=960px>
+<p id="post5"></p>
+</td>
+<td class="posts" width=960px>
+<p id="post6"></p>
+</td>
+</tr>
+<tr height=80px></tr>
+<tr height=50px width=1920px id="titles">
+<td class="titles" width=960px>
+<b id="title7"></b>
+</td>
+<td class="titles" width=960px>
+<b id="title8"></b>
+</td>
+</tr>
+<tr height=80px width=1920px id="posts">
+<td class="posts" width=960px>
+<p id="post7"></p>
+</td>
+<td class="posts" width=960px>
+<p id="post8"></p>
+</td>
+</tr>
+</table>
 </div>
 </body>
 </html>
