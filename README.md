@@ -4,3 +4,4 @@ To Do:
 - add buttons funcionality
 - make the api
 - add login feature
+- testy jednostkowe
