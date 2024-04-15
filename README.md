@@ -1,7 +1,8 @@
 To Do:
 - add mock data
-- add search bar funcionality
+- add comments
 - add buttons funcionality
 - make the api
-- add login feature
+- filtr po liczbie znaków
+- logowanie błędów
 - testy jednostkowe
