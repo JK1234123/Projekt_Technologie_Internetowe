@@ -1,11 +1,12 @@
 .header {
 	background-color: rgb(185,122,87);
-	height: 15%;
+	height: 140px;
 	width: 99%;
 	padding: 10px 10px;
 	position: fixed;
 	white-space: nowrap;
 	overflow-x: auto;
+	top:0;
 }
 .header button{
 	display: inline-block;
@@ -34,12 +35,13 @@
 }
 .main{
 	background-color:rgb(218, 186, 156);
-	padding: 14.2% 10px;
+	height:660px;
+	margin-top: 140px;
 	display:flex;
 }
 .footer {
 	background-color: rgb(185,122,87);
-	height: 15%;
+	height: 200px;
 	width: 99%;
 	padding: 10px 10px;
 	position:fixed;
