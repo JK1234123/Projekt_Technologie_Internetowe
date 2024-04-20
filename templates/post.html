@@ -1,0 +1,11 @@
+{%extends "layout.html" %}
+{% block main %}
+    <h1>{{data.title}}</h1>
+    <p>{{data.body}}</p>
+    <br>
+    {% for comment in comments%}
+        <h5>{{comment.name}}</h5>
+        <p>{{comment.body}}</p>
+        <br>
+    {% endfor %}
+{% endblock %}

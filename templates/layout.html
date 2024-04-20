@@ -1,0 +1,24 @@
+<!DOCTYPE HTML>
+<html lang=”pl”>
+<head>
+<meta charset="utf-8">
+<title>Projekt forum internetowego</title>
+<link rel="stylesheet" href="{{ url_for('static',filename='styles/style.css') }}">
+<script src="script.js"></script>
+</head>
+<body >
+<div class="header">
+<a href="/">Posty</a>
+<a href="/albumy">Albumy</a>
+<button id="filtr" onclick="filtrPosty()" type="button">Filtruj posty</button>
+<input type="number" id="Maksymalna długość" placeholder="1000">
+<label>Maksymalna długość:</label>
+<input type="number" id="minLength" placeholder="0">
+<label for="minLength">Minimalna długość:</label>
+</div>
+<br>
+<br><br><br><br><br><br><br>
+{% block main%}
+{% endblock%}
+</body>
+</html>

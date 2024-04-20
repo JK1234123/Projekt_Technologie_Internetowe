@@ -1,0 +1,8 @@
+{%extends "layout.html" %}
+{% block main %}
+    {% for post in data%}
+        <h1><a href="{{ url_for('views.post', post_id=post.id)}}">{{post.title}}</a></h1>
+        <p>{{post.body}}</p>
+        <br>
+    {% endfor %}
+{% endblock %}

@@ -1,0 +1,7 @@
+{%extends "layout.html" %}
+{% block main %}
+    {% for album in data%}
+        <h1><a href="{{ url_for('views.photo', album_id=album.id)}}">{{album.title}}</a></h1>
+        <br>
+    {% endfor %}
+{% endblock %}
