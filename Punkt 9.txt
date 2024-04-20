@@ -1,3 +1,0 @@
-Aplikacja jest CPU bound
-Warto zoptymalizować ładowanie strony
-Nie występują wycieki pamięci
