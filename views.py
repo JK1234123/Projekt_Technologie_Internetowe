@@ -1,13 +1,17 @@
-from flask import Blueprint, render_template, url_for
+from flask import Blueprint, render_template, url_for, request
 import requests
-import json
+
 
 views = Blueprint(__name__,"views")
 
 
 @views.route("/")
 def home():
-    data = get_posts()
+    url = "http://127.0.0.1:5000/posts"
+    params = {"limit": 5}
+    response = requests.get(url,params)
+    data = response.json()
+    #data = get_posts()
     return render_template("index.html", data=data)
 
 
@@ -29,6 +33,16 @@ def photo(album_id):
     data = get_album_by_id(album_id)
     photos = get_photos(album_id)
     return render_template('album.html', data=data, photos=photos)
+
+
+@views.route("/posts", methods=["GET"])
+def api():
+    url = "https://jsonplaceholder.typicode.com/posts"
+    response = requests.get(url)
+    allPosts = response.json()
+    limit = request.args.get('limit', default=10, type=int)
+    limited_posts = allPosts[:limit]
+    return limited_posts
 
 
 def get_album_by_id(album_id):
@@ -74,7 +88,3 @@ def get_albums():
     response = requests.get(url)
     allAlbums = response.json()
     return allAlbums
-
-
-def gohome():
-    home()
