@@ -1,7 +1,53 @@
 import unittest
 import requests
+from flask import Flask
 from views import *
 
+
+app = Flask(__name__)
+app.register_blueprint(views, url_prefix='')
+
+
+class postyTest(unittest.TestCase):
+    def setUp(self):
+        self.app = app.test_client()
+
+    def test(self):
+        response = self.app.get('/posty')
+        self.assertEqual(response.status_code, 200)
+
+
+class albumyTest(unittest.TestCase):
+    def setUp(self):
+        self.app = app.test_client()
+    def test(self):
+        response = self.app.get('/albumy')
+        self.assertEqual(response.status_code, 200)
+
+
+class iniTest(unittest.TestCase):
+    def setUp(self):
+        self.app = app.test_client()
+
+    def test(self):
+        response = self.app.get('/')
+        self.assertEqual(response.status_code, 302)
+
+
+class commentsTest(unittest.TestCase):
+    def setUp(self):
+         self.app = app.test_client()
+    def test(self):
+        response = self.app.get('/posty/1')
+        self.assertEqual(response.status_code, 200)
+
+
+class photosTest(unittest.TestCase):
+    def setUp(self):
+        self.app = app.test_client()
+    def test(self):
+        response = self.app.get('/albumy/1')
+        self.assertEqual(response.status_code, 200)
 
 
 class get_postsTest(unittest.TestCase):
@@ -46,7 +92,6 @@ class get_post_commentsTest(unittest.TestCase):
         self.assertCountEqual(dataToTest, ExpectedData)
 
 
-
 class get_limited_postsTest(unittest.TestCase):
     def test(self):
         dataToTest = get_limited_posts(10)
@@ -60,8 +105,6 @@ class get_limited_postsTest(unittest.TestCase):
         self.assertEqual(len(dataToTest), 10)
         self.assertEqual(EdgeCase1,[])
         self.assertCountEqual(EdgeCase2, ExpectedData)
-
-
 
 
 class get_filtered_postsTest(unittest.TestCase):
