@@ -7,7 +7,7 @@ from wtforms.validators import DataRequired
 dane = []
 isDaneFiltered = False
 
-views = Blueprint(__name__,"views")
+views = Blueprint(__name__, "views")
 
 
 class LimitForm(FlaskForm):
@@ -62,9 +62,8 @@ def api():
     return limited_posts
 
 
-@views.route("/limit" , methods=["GET", "POST"])
+@views.route("/limit", methods=["GET", "POST"])
 def limiterForm():
-    limit = 100
     form = LimitForm()
     if form.validate_on_submit():
         limit = form.limit.data
@@ -73,18 +72,15 @@ def limiterForm():
     return render_template('limit.html', form=form)
 
 
-@views.route("/filtr" , methods=["GET", "POST"])
+@views.route("/filtr", methods=["GET", "POST"])
 def filterForm():
-    minZnakow = 0
-    maxZnakow = 300
     form = FiltrForm()
     if form.validate_on_submit():
         minZnakow = form.minZnakow.data
         maxZnakow = form.maxZnakow.data
-        get_filtered_posts(minZnakow,maxZnakow)
+        get_filtered_posts(minZnakow, maxZnakow)
         return redirect("http://127.0.0.1:5000/posty")
     return render_template('filtr.html', form=form)
-
 
 
 def get_album_by_id(album_id):
@@ -125,6 +121,7 @@ def get_posts():
     response = requests.get(url)
     dane = response.json()
     isDaneFiltered = False
+    return dane
 
 
 def get_albums():
@@ -140,9 +137,10 @@ def get_limited_posts(limit):
     params = {"limit": int(limit)}
     response = requests.get(url, params)
     dane = response.json()
+    return dane
 
 
-def get_filtered_posts(min, max):
+def get_filtered_posts(minimum, maximum):
     global dane
     global isDaneFiltered
     url = "https://jsonplaceholder.typicode.com/posts"
@@ -150,9 +148,8 @@ def get_filtered_posts(min, max):
     allPosts = response.json()
     filteredposts = []
     for x in allPosts:
-        if int(min) <= len(x["body"]) <= int(max):
+        if int(minimum) <= len(x["body"]) <= int(maximum):
             filteredposts.append(x)
     dane = filteredposts
     isDaneFiltered = True
-    return 1
-
+    return dane
