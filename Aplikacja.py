@@ -5,4 +5,4 @@ app = Flask(__name__)
 app.register_blueprint(views, url_prefix="/")
 
 app.config['SECRET_KEY'] = "AS@!zxd412SA754gh"
-app.run(port=5000)
+app.run(debug=True, port=5000)

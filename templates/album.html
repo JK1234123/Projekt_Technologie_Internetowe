@@ -1,10 +1,10 @@
 {%extends "layout.html" %}
 {% block main %}
-    <h1>{{data.title}}</h1>
     <br>
+    <h1 class="title">{{data.title}}</h1><br>
     {% for photo in photos%}
-        <h5>{{photo.title}}</h5>
+        <h2>{{photo.title}}</h2>
         <img src="{{photo.url}}"></img>
-        <br>
+        <br><br>
     {% endfor %}
 {% endblock %}
