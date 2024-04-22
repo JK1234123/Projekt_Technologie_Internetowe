@@ -1,19 +1,22 @@
 from flask import Blueprint, render_template, url_for, request
 import requests
+from flask_wtf import FlaskForm
+from wtforms import IntegerField, SubmitField
+from wtforms.validators import DataRequired
 
+posty = []
 
 views = Blueprint(__name__,"views")
 
 
 @views.route("/")
 def home():
-    url = "http://127.0.0.1:5000/posts"
-    params = {"limit": 5}
-    response = requests.get(url,params)
-    data = response.json()
-    #data = get_posts()
-    return render_template("index.html", data=data)
+    get_posts()
+    return render_template("home.html")
 
+@views.route("/posty")
+def posty():
+    return render_template("index.html", data=posty)
 
 @views.route("/albumy")
 def albumy():
@@ -35,7 +38,7 @@ def photo(album_id):
     return render_template('album.html', data=data, photos=photos)
 
 
-@views.route("/posts", methods=["GET"])
+@views.route("/api", methods=["GET"])
 def api():
     url = "https://jsonplaceholder.typicode.com/posts"
     response = requests.get(url)
@@ -44,6 +47,14 @@ def api():
     limited_posts = allPosts[:limit]
     return limited_posts
 
+#"POST"
+@views.route("/limit" , methods=["POST", "GET"])
+def limiterForm():
+    if request.method == "POST":
+        default = 0
+        PostNumber = request.form.get('PostNumber', default)
+        return str(PostNumber)
+    return render_template('apiPopUp.html')
 
 def get_album_by_id(album_id):
     allAlbums = get_posts()
@@ -88,3 +99,22 @@ def get_albums():
     response = requests.get(url)
     allAlbums = response.json()
     return allAlbums
+
+
+def get_limited_posts(limit):
+    url = "http://127.0.0.1:5000/api"
+    params = {"limit": int(limit)}
+    response = requests.get(url, params)
+    limited_posts = response.json()
+    return limited_posts
+
+def get_filtered_posts(min, max):
+    url = "https://jsonplaceholder.typicode.com/posts"
+    response = requests.get(url)
+    allPosts = response.json()
+    filteredposts = []
+    for x in allPosts:
+        if int(min) <= len(x["body"]) <= int(max):
+            filteredposts.append(x)
+    return filteredposts
+
