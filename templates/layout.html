@@ -10,12 +10,11 @@
 <div class="header">
 <a href="/posty">Posty</a>
 <a href="/albumy">Albumy</a>
-<a href="/limit">Zmień ilość wyświetlanych postów</a>
-<button id="filtr" onclick="filtrPosty()" type="button">Filtruj posty</button>
-<input type="number" id="Maksymalna długość" placeholder="1000">
-<label>Maksymalna długość:</label>
-<input type="number" id="minLength" placeholder="0">
-<label for="minLength">Minimalna długość:</label>
+<a href="/filtr">Filtruj posty</a>
+<a href="/limit">Ilość wyświetlanych postów</a>
+{%if isDaneFiltered == True %}
+<a href="/">Wyczyść filtr</a>
+{% endif %}
 </div>
 <br>
 <br><br><br><br><br><br><br>

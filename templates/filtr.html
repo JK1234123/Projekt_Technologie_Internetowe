@@ -1,0 +1,15 @@
+{%extends "layout.html" %}
+{% block main %}
+<br><br><br><br><br>
+    <form method="POST">
+        {{form.hidden_tag()}}
+        {{form.minZnakow.label}}
+        {{form.minZnakow()}}
+        <br>
+        {{form.maxZnakow.label}}
+        {{form.maxZnakow()}}
+        <br>
+
+        {{form.submit()}}
+    </form>
+{% endblock %}

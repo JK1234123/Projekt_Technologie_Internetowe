@@ -1,0 +1,12 @@
+{%extends "layout.html" %}
+{% block main %}
+<br><br><br><br><br>
+    <form method="POST">
+        {{form.hidden_tag()}}
+        {{form.limit.label}}
+        {{form.limit()}}
+        <br>
+
+        {{form.submit()}}
+    </form>
+{% endblock %}
