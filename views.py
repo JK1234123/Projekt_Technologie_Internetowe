@@ -1,7 +1,7 @@
 from flask import Blueprint, render_template, url_for, request, redirect
 import requests
 from flask_wtf import FlaskForm
-from wtforms import IntegerField, SubmitField
+from wtforms import IntegerField, SubmitField, StringField
 from wtforms.validators import DataRequired
 
 dane = []
@@ -20,11 +20,14 @@ class FiltrForm(FlaskForm):
     maxZnakow = IntegerField("Podaj maksymalną ilość znaków:", validators=[DataRequired()])
     submit = SubmitField("Zatwierdź")
 
+class LoginForm(FlaskForm):
+    login = StringField("Login:", validators=[DataRequired()])
+    haslo = StringField("Hasło:", validators=[DataRequired()])
+    submit = SubmitField("Zaloguj")
 
 @views.route("/")
 def home():
-    get_posts()
-    return redirect("http://127.0.0.1:5000/posty")
+    return redirect("http://127.0.0.1:5000/login")
 
 
 @views.route("/posty")
@@ -83,6 +86,25 @@ def filterForm():
     return render_template('filtr.html', form=form)
 
 
+@views.route("/login", methods=["GET", "POST"])
+def loginForm():
+    form = LoginForm()
+    if form.validate_on_submit():
+        login = form.login.data
+        haslo = form.haslo.data
+        isCorrect = check_login(login, haslo)
+        if isCorrect == 1:
+            get_posts()
+            return redirect("http://127.0.0.1:5000/posty")
+    return render_template('login.html', form=form)
+
+
+@views.route("/clear")
+def clear():
+    get_posts()
+    return redirect("http://127.0.0.1:5000/posty")
+
+
 def get_album_by_id(album_id):
     allAlbums = get_albums()
     album_id = int(album_id)
@@ -133,10 +155,12 @@ def get_albums():
 
 def get_limited_posts(limit):
     global dane
+    global isDaneFiltered
     url = "http://127.0.0.1:5000/api"
     params = {"limit": int(limit)}
     response = requests.get(url, params)
     dane = response.json()
+    isDaneFiltered = True
     return dane
 
 
@@ -153,3 +177,10 @@ def get_filtered_posts(minimum, maximum):
     dane = filteredposts
     isDaneFiltered = True
     return dane
+
+
+def check_login(login, haslo):
+    if login == "Jan" and "Tester":
+        return 1
+    else:
+        return 0

@@ -60,6 +60,10 @@ input[type="number"]
 {
     font-size:26px;
 }
+input[type="text"]
+{
+    font-size:26px;
+}
 .commentTitle {
 	font-size:25px;
 	margin-left:20px;
